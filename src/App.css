@@ -1,0 +1,35 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main {
+  display: flex; 
+  flex-grow: 1;
+}
+
+.content {
+  flex-grow: 1;
+}
+  
+/* --------- Non-flexbox related styles --------- */
+.child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1%;
+  padding: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffe8c3;
+  background-color: #eab768;
+  border-radius: 10px;
+  border: 10px solid #f5cc8b;
+}
+
+body {
+  background-color: #282c35;
+  font-family: Verdana;
+  font-weight: 600;
+}
