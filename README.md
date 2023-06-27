@@ -12,7 +12,7 @@ Since this project will be continuously developed and iterated upon throughout t
 
 - [ ] 2. `npm i` & `npm start`.
 
-- [ ] 3. Create a basic layout. There is some boiler code in the repository to allow you to see what we mean by laying out your components, please remove the styling, these colors are not intended for use. The sidebar is not necessary but used here for the purpose of showcasing flexbox. You are, of course, welcome to implement a sidebar if you want. Split these divs into the following components:
+- [ ] 3. Create a basic layout with some components inside a `/components`folder. You will need to create this. There is some boiler code in the repository to allow you to see what we mean by laying out your components, please remove the styling, these colors are not intended for use. The sidebar is not necessary but used here for the purpose of showcasing flexbox. You are, of course, welcome to implement a sidebar if you want. Split these divs into the following components:
 
 - **Header**: This component represents the header section of your web page. It should include a title or logo for your website. Additionally, it can optionally include a login, sign out, or register button component. Sometimes the `Header` is actually rendered inside the NavBar and is more of a logo component. These are all decisions you need to make.
 
