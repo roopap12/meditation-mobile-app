@@ -6,6 +6,13 @@ The objective of this challenge is to consolidate and apply the knowledge we hav
 
 Since this project will be continuously developed and iterated upon throughout the course, it is crucial to choose a topic or idea that genuinely interests you and in which you are invested. Your chosen project will be the foundation for your learning journey, so selecting something you are passionate about will enhance your motivation and engagement.
 
+## Watch This Video on Design before starting. 
+
+Hopefully it can inspire you to think of ways you can implement your idea.
+
+[Modern Web Design](https://www.youtube.com/watch?v=SwFrRteJFfg)
+
+
 ## Instructions
 
 - [ ] 1. Clone this repository to start working on your project.
