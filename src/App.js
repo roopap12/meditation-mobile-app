@@ -4,7 +4,6 @@ import Navbar from "./Components/Navbar";
 import Yoga from "./Components/Yoga";
 
 function App() {
-  test
   const [timer, setTimer] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [currentTab, setCurrentTab] = useState("original");
