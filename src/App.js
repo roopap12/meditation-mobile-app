@@ -5,7 +5,7 @@ import Yoga from "./Components/Yoga";
 import Meditation from "./Components/Meditation";
 
 function App() {
-  const [timer, setTimer] = useState(10 * 60);
+  const [timer, setTimer] = useState(10 * 60 * 1000);
   const [isRunning, setIsRunning] = useState(false);
   const [currentTab, setCurrentTab] = useState("original");
   const [hasStarted, setHasStarted] = useState(false);
@@ -13,15 +13,22 @@ function App() {
     new Date().toLocaleTimeString()
   );
 
+  
   useEffect(() => {
     let interval;
-    if (isRunning) {
+    if (isRunning && timer > 0) {
       interval = setInterval(() => {
-        setTimer((prevTimer) => prevTimer + 1);
+        setTimer((prevTimer) => prevTimer - 1000);
       }, 1000);
+    } else {
+      clearInterval(interval);
+      if (timer === 0) {
+        // This is where you would put audio to play
+        console.log("Timer finished");
+      }
     }
     return () => clearInterval(interval);
-  }, [isRunning]);
+  }, [isRunning, timer]);
 
   const startTimer = () => {
     setIsRunning(true);
@@ -29,29 +36,12 @@ function App() {
   };
 
   const resetTimer = () => {
-    setTimer(0);
+    setTimer(10 * 60 * 1000);
     setIsRunning(false);
     setHasStarted(false);
   };
 
-  useEffect(() => {
-    let interval;
-    if (isRunning) {
-      interval = setInterval(() => {
-        setTimer((prevTimer) => prevTimer - 1);
-      }, 1000);
-    } else if (!isRunning && timer !== 0) {
-      clearInterval(interval);
-    }
-    if (timer === 0) {
-      setIsRunning(false);
-      setHasStarted(false);
-      // I want to put audio music to play
-    }
-
-    return () => clearInterval(interval);
-  }, [isRunning, timer]);
-
+  //This displays the current time every second
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString());
