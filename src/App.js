@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Yoga from "./Components/Yoga";
 import Meditation from "./Components/Meditation";
+import Footer from "./Components/Footer";
+
 
 function App() {
   const [timer, setTimer] = useState(10 * 60 * 1000);
@@ -82,12 +84,13 @@ function App() {
           )}
           {currentTab === "yoga" && <Yoga />}
           {currentTab === "meditation" && <Meditation />}
+          {currentTab === "footer" && <Footer />}
         </div>
       </div>
-
-
+      <div className="child-footer">
+        <Footer/>
+        </div>
       
-      <div className="child">Footer</div>
     </div>
   );
 }
