@@ -1,3 +1,4 @@
+//import the required libraries and components to be used in this file.
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar";
@@ -5,9 +6,9 @@ import Yoga from "./Components/Yoga";
 import Meditation from "./Components/Meditation";
 import Footer from "./Components/Footer";
 
-
+//States for Timer and keep the tab current
 function App() {
-  const [timer, setTimer] = useState(10 * 60 * 1000);
+  const [timer, setTimer] = useState(10 * 60 * 1000); 
   const [isRunning, setIsRunning] = useState(false);
   const [currentTab, setCurrentTab] = useState("original");
   const [hasStarted, setHasStarted] = useState(false);
@@ -15,7 +16,7 @@ function App() {
     new Date().toLocaleTimeString()
   );
 
-  
+  //useEffect Hook for Time Management
   useEffect(() => {
     let interval;
     if (isRunning && timer > 0) {
@@ -31,12 +32,12 @@ function App() {
     }
     return () => clearInterval(interval);
   }, [isRunning, timer]);
-
+  //Function to start the timer whenver the start button is clicked
   const startTimer = () => {
     setIsRunning(true);
     setHasStarted(true);
   };
-
+  //Resets the timer whenever the rest button is clicked
   const resetTimer = () => {
     setTimer(10 * 60 * 1000);
     setIsRunning(false);
@@ -50,7 +51,7 @@ function App() {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-
+  //Components - renders (Meditation, Navbar, Yoga, Footer) 
   return (
     <div className="parent">
       <div className="child-special-text">

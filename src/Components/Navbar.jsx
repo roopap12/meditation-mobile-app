@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-
+//function to navigate the Yoga and Meditation Tab 
 function Navbar({setCurrentTab}) {
 
   function handleClick (tabName) {
