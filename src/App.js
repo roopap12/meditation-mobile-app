@@ -5,17 +5,17 @@ import Navbar from "./Components/Navbar";
 import Yoga from "./Components/Yoga";
 import Meditation from "./Components/Meditation";
 import Footer from "./Components/Footer";
+import Form from "./Components/Form";
 
 //States for Timer and keep the tab current
 function App() {
-  const [timer, setTimer] = useState(10 * 60 * 1000); 
+  const [timer, setTimer] = useState(10 * 60 * 1000);
   const [isRunning, setIsRunning] = useState(false);
   const [currentTab, setCurrentTab] = useState("original");
   const [hasStarted, setHasStarted] = useState(false);
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
   );
-
   //useEffect Hook for Time Management
   useEffect(() => {
     let interval;
@@ -51,7 +51,14 @@ function App() {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-  //Components - renders (Meditation, Navbar, Yoga, Footer) 
+  //importing Form component from Form.js in App.js file.
+  // function App() {
+  //   return (
+  //     <Form/>
+  //   );
+  // }
+
+  //Components - renders (Meditation, Navbar, Yoga, Footer)
   return (
     <div className="parent">
       <div className="child-special-text">
@@ -77,8 +84,6 @@ function App() {
           </div>
         </div>
 
-
-
         <div className="child content">
           {currentTab === "original" && (
             <img src="/relax.jpeg" alt="Meditation" />
@@ -89,9 +94,9 @@ function App() {
         </div>
       </div>
       <div className="child-footer">
-        <Footer/>
-        </div>
-      
+        {currentTab === "Form" ? <Form /> : null}
+        <Footer />
+      </div>
     </div>
   );
 }
