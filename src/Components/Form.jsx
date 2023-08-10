@@ -6,7 +6,7 @@ import {
   dateOfBirthRegex,
   emailRegex,
 } from "../regex";
-//declared the functional Form component and use the useState Hook to declare state 
+//declared the functional Form component and use the useState Hook to declare state
 function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -31,7 +31,7 @@ function Form() {
       email: !emailRegex.test(email),
     };
     setErrors(regexErrors);
-  
+
     // This Checks if there are no errors
     if (
       !regexErrors.firstName &&
@@ -40,7 +40,7 @@ function Form() {
       !regexErrors.email
     ) {
       setAchievement(true);
-  
+
       // This Reset the form fields
       setFirstName("");
       setLastName("");
@@ -51,12 +51,11 @@ function Form() {
       setAchievement(false);
     }
   }
-  //This will show the fields on the form with 
+  //This will show the fields on the form with
   return (
     <>
-    <div className="App">
+      <div className="box">
         <h1>Registration Form</h1>
-      </div>
       <div className="box">
         <label>First Name</label>
         <input
@@ -65,7 +64,7 @@ function Form() {
           value={firstName}
           onChange={(event) => setFirstName(event.target.value)}
           placeholder="firstname"
-        />
+          />
         {errors.firstName && (
           <p className="errorMessage">
             Name should not be more than of 20 characters
@@ -80,7 +79,7 @@ function Form() {
           value={lastName}
           onChange={(event) => setLastName(event.target.value)}
           placeholder="lastname"
-        />
+          />
         {errors.lastName && (
           <span className="errorMessage">
             Should not be more than of 20 characters
@@ -95,10 +94,10 @@ function Form() {
           value={dateOfBirth}
           onChange={(event) => setDate(event.target.value)}
           placeholder="DOB"
-        />
+          />
         {errors.dateOfBirth && (
           <span className="errorMessage">
-            Please enter valid date of birth dd-mm-yyyy 
+            Please enter valid date of birth dd-mm-yyyy
           </span>
         )}
       </div>
@@ -110,12 +109,10 @@ function Form() {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="email"
-        />
+          />
         {errors.email && (
-          <span className="errorMessage">
-            Invalid email address!
-          </span>
-        )}
+          <span className="errorMessage">Invalid email address!</span>
+          )}
       </div>
       <div className="box">
         <label>Donation $</label>
@@ -125,10 +122,11 @@ function Form() {
           value={donation}
           onChange={(event) => setDonation(event.target.value)}
           placeholder="donation"
-        />
+          />
       </div>
       <button onClick={(e) => validate(e)}>SIGN UP!</button>
       <br></br>
+          </div>
     </>
   );
 }

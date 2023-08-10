@@ -6,6 +6,9 @@ import Yoga from "./Components/Yoga";
 import Meditation from "./Components/Meditation";
 import Footer from "./Components/Footer";
 import Form from "./Components/Form";
+import { Outlet } from "react-router-dom";
+import Home from "./Components/Home";
+import Stopwatch from "./Components/Stopwatch";
 
 //States for Timer and keep the tab current
 function App() {
@@ -72,29 +75,20 @@ function App() {
       <div className="main">
         <div className="button-box">
           <div className="child-meditation-timer">Meditation Timer</div>
-
-          <button className="timer-button" onClick={startTimer}>
-            Start
-          </button>
-          <button className="timer-button" onClick={resetTimer}>
-            Reset
-          </button>
-          <div>
-            {hasStarted ? <div className="timer">{currentTime}</div> : null}
+          <div className="timer">{currentTime}</div>
+          <div className="stopwatch-box">
+            <Stopwatch />
           </div>
         </div>
 
         <div className="child content">
-          {currentTab === "original" && (
-            <img src="/relax.jpeg" alt="Meditation" />
-          )}
-          {currentTab === "yoga" && <Yoga />}
+          {/* {currentTab === "yoga" && <Yoga />}
           {currentTab === "meditation" && <Meditation />}
-          {currentTab === "footer" && <Footer />}
+          {currentTab === "form" && <Form /> } */}
+          <Outlet />
         </div>
       </div>
       <div className="child-footer">
-        {currentTab === "Form" ? <Form /> : null}
         <Footer />
       </div>
     </div>
