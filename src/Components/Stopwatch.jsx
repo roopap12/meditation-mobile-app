@@ -20,16 +20,21 @@ function Stopwatch () {
     if (audioRef.current) {
       audioRef.current.play(); // Plays the audio when the start function is invoked
     }
-    setInterval(() => setEnd(true), 600000)
+    // setInterval(() => setEnd(true), 600000)
   };
 
   // These variables are used for tracking each units of time.
-  var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
-
+  let updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
   // The run function updates the time. It checks if the minutes, seconds, or milliseconds have reached their maximum values, and if they have, 
   // it resets them to 0 and increments the next highest unit of time. 
   // It then calls setTime to update the time with the new values.
   const run = () => {
+  
+    updatedMs++;
+    if(updatedMs === 100){
+      updatedS++;
+      updatedMs = 0;
+    }
     if(updatedM === 60){
       updatedH++;
       updatedM = 0;
@@ -38,12 +43,9 @@ function Stopwatch () {
       updatedM++;
       updatedS = 0;
     }
-    if(updatedMs === 100){
-      updatedS++;
-      updatedMs = 0;
-    }
-    updatedMs++;
+      
     return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH});
+   
   };
 
   // The stop function is used to clear the time interval and stop the audio
@@ -53,7 +55,7 @@ function Stopwatch () {
     if (audioRef.current) {
       audioRef.current.pause(); // Pauses the audio when the stop function is invoked
     }
-    setEnd(false)
+    setEnd(true)
   };
 
   // Check if 10 minutes have passed every time the time updates
@@ -86,7 +88,7 @@ function Stopwatch () {
           <DisplayComponent time={time}/>
           <BtnComponent status={status} resume={resume} reset={reset} stop={stop} start={start}/>
           <audio ref={audioRef} src="/Mymusic.mp3" /> {/* This line adds the audio element */}
-          {end && <p> end! </p>}
+          {end && <p>  </p>}
         </div>
   );
 }
