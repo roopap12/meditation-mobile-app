@@ -20,21 +20,19 @@ function App() {
     new Date().toLocaleTimeString()
   );
   //useEffect Hook for Time Management
-  useEffect(() => {
-    let interval;
-    if (isRunning && timer > 0) {
-      interval = setInterval(() => {
-        setTimer((prevTimer) => prevTimer - 1000);
-      }, 1000);
-    } else {
-      clearInterval(interval);
-      if (timer === 0) {
-        // This is where you would put audio to play
-        console.log("Timer finished");
-      }
-    }
-    return () => clearInterval(interval);
-  }, [isRunning, timer]);
+  // useEffect(() => {
+  //   let interval;
+  //   if (isRunning && timer > 0) {
+  //     interval = setInterval(() => {
+  //       setTimer((prevTimer) => prevTimer - 1000);
+  //     }, 1000);
+  //   } else {
+  //     clearInterval(interval);
+  //     if (timer === 0) {
+  //     }
+  //   }
+  //   return () => clearInterval(interval);
+  // }, [isRunning, timer]);
   //Function to start the timer whenver the start button is clicked
   const startTimer = () => {
     setIsRunning(true);
