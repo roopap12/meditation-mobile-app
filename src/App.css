@@ -105,8 +105,35 @@ body {
   color: black;
   cursor: pointer;
   font-family: Tahoma;
-  font-size: 30px;
+  font-size: 15px;
+  position: relative;
 }
+.yoga-dropdown {
+  position: absolute; 
+  top: 100%;          
+  z-index: 1;         
+  background-color: lightskyblue;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);  
+  border-radius: 4px; 
+  width: 200px;    
+  font-size: 12px;   
+}
+.yoga-dropdown .link {
+  display: block;     
+  padding: 8px 16px;  
+  text-decoration: none; 
+  color: black;       
+  border-bottom: 1px solid #e1e1e1;  
+}
+
+.yoga-dropdown .link:last-child {
+  border-bottom: none;  
+}
+
+.yoga-dropdown .link:hover {
+  background-color: #f7f7f7; 
+}
+
 
 .link{
   text-decoration: none;
@@ -114,7 +141,7 @@ body {
 }
 
 .nav-item:hover {
-  background-color: lightgrey;
+  background-color: lightskyblue;
 }
 .child content {
   width: 300px;
