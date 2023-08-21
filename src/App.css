@@ -230,3 +230,11 @@ form{
 .margin {
   margin: 10px;
 }
+
+.meditationImage {
+  width: 800px;      /* Width of the image */
+  height: 500px;     /* Height of the image */
+  object-fit: cover; /* This will ensure that the image covers the entire width and height without distorting. Useful especially if the original image's aspect ratio is different */
+  border-radius: 10px;  /* Optional: Adds rounded corners to the image */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);  /* Optional: Adds a subtle shadow to the image for a slightly lifted effect */
+}
