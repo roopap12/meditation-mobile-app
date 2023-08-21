@@ -56,77 +56,77 @@ function Form() {
     <>
       <div className="box">
         <h1>Registration Form</h1>
-      <div className="box">
-        <label>First Name</label>
-        <input
-          className="input"
-          type="text"
-          value={firstName}
-          onChange={(event) => setFirstName(event.target.value)}
-          placeholder="firstname"
+        <div className="box">
+          <label>First Name</label>
+          <input
+            className="input"
+            type="text"
+            value={firstName}
+            onChange={(event) => setFirstName(event.target.value)}
+            placeholder="firstname"
           />
-        {errors.firstName && (
-          <p className="errorMessage">
-            Name should not be more than of 20 characters
-          </p>
-        )}
-      </div>
-      <div className="box">
-        <label>Last Name</label>
-        <input
-          className="input"
-          type="text"
-          value={lastName}
-          onChange={(event) => setLastName(event.target.value)}
-          placeholder="lastname"
-          />
-        {errors.lastName && (
-          <span className="errorMessage">
-            Should not be more than of 20 characters
-          </span>
-        )}
-      </div>
-      <div className="box">
-        <label>Date of Birth</label>
-        <input
-          className="input"
-          type="date"
-          value={dateOfBirth}
-          onChange={(event) => setDate(event.target.value)}
-          placeholder="DOB"
-          />
-        {errors.dateOfBirth && (
-          <span className="errorMessage">
-            Please enter valid date of birth dd-mm-yyyy
-          </span>
-        )}
-      </div>
-      <div className="box">
-        <label>Email</label>
-        <input
-          className="input"
-          type="text"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          placeholder="email"
-          />
-        {errors.email && (
-          <span className="errorMessage">Invalid email address!</span>
+          {errors.firstName && (
+            <p className="errorMessage">
+              Name should not be more than of 20 characters
+            </p>
           )}
-      </div>
-      <div className="box">
-        <label>Donation $</label>
-        <input
-          className="input"
-          type="number"
-          value={donation}
-          onChange={(event) => setDonation(event.target.value)}
-          placeholder="donation"
+        </div>
+        <div className="box">
+          <label>Last Name</label>
+          <input
+            className="input"
+            type="text"
+            value={lastName}
+            onChange={(event) => setLastName(event.target.value)}
+            placeholder="lastname"
           />
+          {errors.lastName && (
+            <span className="errorMessage">
+              Should not be more than of 20 characters
+            </span>
+          )}
+        </div>
+        <div className="box">
+          <label>Date of Birth</label>
+          <input
+            className="input"
+            type="date"
+            value={dateOfBirth}
+            onChange={(event) => setDate(event.target.value)}
+            placeholder="DOB"
+          />
+          {errors.dateOfBirth && (
+            <span className="errorMessage">
+              Please enter valid date of birth dd-mm-yyyy
+            </span>
+          )}
+        </div>
+        <div className="box">
+          <label>Email</label>
+          <input
+            className="input"
+            type="text"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="email"
+          />
+          {errors.email && (
+            <span className="errorMessage">Invalid email address!</span>
+          )}
+        </div>
+        <div className="box">
+          <label>Donation $</label>
+          <input
+            className="input"
+            type="number"
+            value={donation}
+            onChange={(event) => setDonation(event.target.value)}
+            placeholder="donation"
+          />
+        </div>
+        <button onClick={(e) => validate(e)}>SIGN UP!</button>
+        <br></br>
       </div>
-      <button onClick={(e) => validate(e)}>SIGN UP!</button>
-      <br></br>
-          </div>
     </>
   );
 }

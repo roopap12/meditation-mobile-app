@@ -1,12 +1,12 @@
-import React, { useState, useRef } from 'react';
-import DisplayComponent from './DisplayComponent';
-import BtnComponent from './BtnComponent';
+import React, { useState, useRef } from "react";
+import DisplayComponent from "./DisplayComponent";
+import BtnComponent from "./BtnComponent";
 
 function Stopwatch() {
   const [time, setTime] = useState({ ms: 0, s: 0, m: 0 });
   const [interv, setInterv] = useState();
   const [status, setStatus] = useState(0);
-  const [userTime, setUserTime] = useState(0);  
+  const [userTime, setUserTime] = useState(0);
   const audioRef = useRef(null);
   const [end, setEnd] = useState(false);
 
@@ -20,7 +20,9 @@ function Stopwatch() {
     }
   };
 
-  let updatedMs = time.ms, updatedS = time.s, updatedM = time.m;
+  let updatedMs = time.ms,
+    updatedS = time.s,
+    updatedM = time.m;
 
   const run = () => {
     if (updatedMs === 0) {
@@ -76,10 +78,21 @@ function Stopwatch() {
   return (
     <div className="stopwatch">
       <DisplayComponent time={time} />
-      <BtnComponent status={status} resume={resume} reset={reset} stop={stop} start={start} />
-      <div style={{ fontSize: '12px' }}>
-        Set Meditation Time (minutes): 
-        <input type="number" value={userTime} onChange={handleUserTimeChange} min="1" />
+      <BtnComponent
+        status={status}
+        resume={resume}
+        reset={reset}
+        stop={stop}
+        start={start}
+      />
+      <div style={{ fontSize: "12px" }}>
+        Set Meditation Time (minutes):
+        <input
+          type="number"
+          value={userTime}
+          onChange={handleUserTimeChange}
+          min="1"
+        />
       </div>
       <audio ref={audioRef} src="/Mymusic.mp3" />
     </div>
@@ -87,8 +100,3 @@ function Stopwatch() {
 }
 
 export default Stopwatch;
-
-
-
-
-
