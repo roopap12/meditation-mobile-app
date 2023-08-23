@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import DisplayComponent from "./DisplayComponent";
 import BtnComponent from "./BtnComponent";
 
@@ -9,6 +9,9 @@ function Stopwatch() {
   const [userTime, setUserTime] = useState(0);
   const audioRef = useRef(null);
   const [end, setEnd] = useState(false);
+  const [volume, setVolume] = useState(1);
+  const fadeInterval = useRef(null);
+  const endSoundRef = useRef(null); //
 
   const start = () => {
     setTime({ ms: 0, s: 0, m: parseInt(userTime) });
@@ -23,6 +26,15 @@ function Stopwatch() {
   let updatedMs = time.ms,
     updatedS = time.s,
     updatedM = time.m;
+
+  const fadeAudio = () => {
+    if (volume > 0.1) {
+      setVolume((prevVolume) => prevVolume - 0.1); // Decrease volume by 0.1
+      audioRef.current.volume = volume; // Set the current volume to the audio element
+    } else {
+      clearInterval(fadeInterval.current); // If volume is low enough, clear the interval
+    }
+  };
 
   const run = () => {
     if (updatedMs === 0) {
@@ -42,11 +54,15 @@ function Stopwatch() {
     } else {
       updatedMs--;
     }
+    if (updatedM === 0 && updatedS <= 10 && !fadeInterval.current) {
+      fadeInterval.current = setInterval(fadeAudio, 1000); // Reduce volume every second
+    }
     setTime({ ms: updatedMs, s: updatedS, m: updatedM });
   };
 
   const stop = () => {
     clearInterval(interv);
+    clearInterval(fadeInterval.current); //
     setStatus(2);
     setTime({ ms: 0, s: 0, m: userTime });
     if (audioRef.current) {
@@ -58,6 +74,7 @@ function Stopwatch() {
 
   const reset = () => {
     clearInterval(interv);
+    clearInterval(fadeInterval.current); //
     setStatus(0);
     setTime({ ms: 0, s: 0, m: userTime });
     if (audioRef.current) {
@@ -74,6 +91,12 @@ function Stopwatch() {
   };
 
   const resume = () => start();
+
+  useEffect(() => {
+    if (end) {
+      endSoundRef.current.play();
+    }
+  }, [end]);
 
   return (
     <div className="stopwatch">
@@ -95,6 +118,7 @@ function Stopwatch() {
         />
       </div>
       <audio ref={audioRef} src="/Mymusic.mp3" />
+      <audio ref={endSoundRef} src="/Endtime.wav" />
     </div>
   );
 }
