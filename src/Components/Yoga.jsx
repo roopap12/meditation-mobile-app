@@ -34,7 +34,7 @@ function Yoga() {
         Yoga is really the art of waking.<br></br>
         Yoga to reduce Stress and Relax yourself.
       </p>
-    </div>
+    </div> 
   );
 }
 
