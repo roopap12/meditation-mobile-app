@@ -20,13 +20,15 @@ function Navbar({ setCurrentTab }) {
       {/* Logo */}
       <div className="nav-logo">
         <Link to="/">
-          <img src="/logo-meditation.png" alt="My Logo" className="logo-img" />
+          <img src="/meditation logo.jpeg" alt="My Logo" className="logo-img" />
         </Link>
       </div>
 
       {/* Home Tab */}
       <div className="nav-item">
-        <Link to="/" className="link">Home</Link>
+        <Link to="/" className="link">
+          Home
+        </Link>
       </div>
 
       {/* Yoga Tab */}

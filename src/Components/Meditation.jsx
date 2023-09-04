@@ -42,7 +42,7 @@ function Meditation() {
   return (
     <div className="Meditation" key={meditationType}>
        <img src={`/${currentMeditation.image}`} alt="Meditation" className="meditationImage" />
-      <audio controls>
+      <audio>
         <source src={`/${currentMeditation.audio}`} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>

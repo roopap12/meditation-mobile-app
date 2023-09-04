@@ -38,7 +38,7 @@
   padding: 30px;
   font-size: 30px;
   font-style: initial;
-  line-height: 20px;
+  line-height: 10px;
   color: black;
   background-color: lightcyan;
   border-radius: 5px;
@@ -266,7 +266,7 @@ form{
 }
 
 .logo-img {
-  height: 80px; /* Or whatever height you prefer */
+  height: 100px; /* Or whatever height you prefer */
   width: auto;
-  margin-right: 625px; /* Spacing after the logo, if desired */
+  margin-right: 725px; /* Spacing after the logo, if desired */
 }
