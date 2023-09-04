@@ -16,6 +16,8 @@ function Stopwatch({ selectedMeditation }) {
   const meditationMusic = {
     "morning": "/Morning-Meditation.mp3",
     "evening": "/Mymusic.mp3",
+    "healing": "/Healing-Meditation.mp3",
+    "sleeping": "/Meditation-to-Sleep"
   };
 
   const start = () => {
@@ -24,7 +26,7 @@ function Stopwatch({ selectedMeditation }) {
     setStatus(1);
     setInterv(setInterval(run, 10));
     if (audioRef.current) {
-      audioRef.current.setAttribute('src', meditationMusic[selectedMeditation]);
+      audioRef.current.src = meditationMusic[selectedMeditation];
       audioRef.current.play();
     }
   };

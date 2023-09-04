@@ -40,8 +40,12 @@ function Navbar({ setCurrentTab }) {
             <Link to="/Yoga?type=weight-reduce" className="link">
               Yoga for Weight Reduction
             </Link>
-            <Link to="/Yoga?type=power-yoga" className="link">Power Yoga</Link>
-            <Link to="/Yoga?type=neck-shoulders-back" className="link">Yoga for Neck Shoulders and Back Pain</Link>
+            <Link to="/Yoga?type=power-yoga" className="link">
+              Power Yoga
+            </Link>
+            <Link to="/Yoga?type=neck-shoulders-back" className="link">
+              Yoga for Neck Shoulders and Back Pain
+            </Link>
             {/* Add more yoga types here as needed */}
           </div>
         )}
@@ -57,6 +61,12 @@ function Navbar({ setCurrentTab }) {
             </Link>
             <Link to="/Meditation?type=evening" className="link">
               Evening Meditation
+            </Link>
+            <Link to="/Meditation?type=healing" className="link">
+              Healing Meditation
+            </Link>
+            <Link to="/Meditation?type=sleeping" className="link">
+              Meditation to Sleep
             </Link>
             {/* Add more meditation types here as needed */}
           </div>
