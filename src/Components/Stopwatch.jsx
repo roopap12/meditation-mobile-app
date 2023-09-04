@@ -17,7 +17,7 @@ function Stopwatch({ selectedMeditation }) {
     "morning": "/Morning-Meditation.mp3",
     "evening": "/Mymusic.mp3",
     "healing": "/Healing-Meditation.mp3",
-    "sleeping": "/Meditation-to-Sleep"
+    "sleeping": "/Meditation-to-Sleep.mp3"
   };
 
   const start = () => {
