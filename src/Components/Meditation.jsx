@@ -27,14 +27,10 @@ function Meditation() {
   const currentMeditation = meditations[meditationType] || meditations["morning"];
 
   return (
-    <div className="meditation">
-      <img src={currentMeditation.image} alt={currentMeditation.title} className="meditationImage" />
-      <p>{currentMeditation.message}</p>
-      <audio >
-        <source src={currentMeditation.audio} type="audio/mp3" />
-        Your browser does not support the audio element.
-      </audio>
-      {/* <p>Awake the world, one mind at a time!</p> */}
+    <div className="Meditation">
+      <img src="/Meditation.jpg" alt="Meditation" className="meditationImage" />
+      
+      <p> Awake the world, one mind at a time!</p>
     </div>
   );
 }

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../App.css";
-
-function Navbar({ setCurrentTab, setSelectedMeditation }) {
+//function to navigate the Yoga and Meditation Tab
+function Navbar({ setCurrentTab }) {
   const [showYogaDropdown, setShowYogaDropdown] = useState(false);
   const [showMeditationDropdown, setShowMeditationDropdown] = useState(false);
 
