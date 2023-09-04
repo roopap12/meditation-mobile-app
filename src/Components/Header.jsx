@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="child-special-text">Meditate, Relax and Stay Focused!</div>
+    <div className="child-special-text">Getting Started with Mindfullness!</div>
   );
 }
 

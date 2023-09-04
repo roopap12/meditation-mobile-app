@@ -4,6 +4,7 @@ function Home() {
   return (
     <div className="home">
       <img src="/relax.jpeg" alt="Home" />
+      <p>Awake the world, one mind at a time!</p>
       
     </div>
   );

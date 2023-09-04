@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import DisplayComponent from "./DisplayComponent";
 import BtnComponent from "./BtnComponent";
 
-function Stopwatch() {
+function Stopwatch({ selectedMeditation }) {
   const [time, setTime] = useState({ ms: 0, s: 0, m: 0 });
   const [interv, setInterv] = useState();
   const [status, setStatus] = useState(0);
@@ -11,7 +11,12 @@ function Stopwatch() {
   const [end, setEnd] = useState(false);
   const [volume, setVolume] = useState(1);
   const fadeInterval = useRef(null);
-  const endSoundRef = useRef(null); //
+  const endSoundRef = useRef(null);
+
+  const meditationMusic = {
+    "morning": "/Morning-Meditation.mp3",
+    "evening": "/Mymusic.mp3",
+  };
 
   const start = () => {
     setTime({ ms: 0, s: 0, m: parseInt(userTime) });
@@ -19,6 +24,7 @@ function Stopwatch() {
     setStatus(1);
     setInterv(setInterval(run, 10));
     if (audioRef.current) {
+      audioRef.current.setAttribute('src', meditationMusic[selectedMeditation]);
       audioRef.current.play();
     }
   };
@@ -29,10 +35,10 @@ function Stopwatch() {
 
   const fadeAudio = () => {
     if (volume > 0.1) {
-      setVolume((prevVolume) => prevVolume - 0.1); // Decrease volume by 0.1
-      audioRef.current.volume = volume; // Set the current volume to the audio element
+      setVolume((prevVolume) => prevVolume - 0.1);
+      audioRef.current.volume = volume;
     } else {
-      clearInterval(fadeInterval.current); // If volume is low enough, clear the interval
+      clearInterval(fadeInterval.current);
     }
   };
 
@@ -55,14 +61,14 @@ function Stopwatch() {
       updatedMs--;
     }
     if (updatedM === 0 && updatedS <= 10 && !fadeInterval.current) {
-      fadeInterval.current = setInterval(fadeAudio, 1000); // Reduce volume every second
+      fadeInterval.current = setInterval(fadeAudio, 1000);
     }
     setTime({ ms: updatedMs, s: updatedS, m: updatedM });
   };
 
   const stop = () => {
     clearInterval(interv);
-    clearInterval(fadeInterval.current); //
+    clearInterval(fadeInterval.current);
     setStatus(2);
     setTime({ ms: 0, s: 0, m: userTime });
     if (audioRef.current) {
@@ -74,7 +80,7 @@ function Stopwatch() {
 
   const reset = () => {
     clearInterval(interv);
-    clearInterval(fadeInterval.current); //
+    clearInterval(fadeInterval.current);
     setStatus(0);
     setTime({ ms: 0, s: 0, m: userTime });
     if (audioRef.current) {
@@ -117,8 +123,8 @@ function Stopwatch() {
           min="1"
         />
       </div>
-      <audio ref={audioRef} src="/Mymusic.mp3" />
-      <audio ref={endSoundRef} src="/Endtime.wav" />
+      <audio ref={audioRef} />
+      <audio ref={endSoundRef} src="/Endtime.mp3" />
     </div>
   );
 }
