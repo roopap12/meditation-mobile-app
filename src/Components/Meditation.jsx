@@ -7,7 +7,7 @@ function Meditation() {
   const meditationType = params.get("type");
 
   const meditations = {
-    // "meditation": { image: "relax.jpeg" },
+   
 
     "morning": {
 
@@ -48,8 +48,7 @@ function Meditation() {
       </audio>
       <p> Awake the world, one mind at a time!</p>
     </div>
-    // console.log("Meditation Type:", meditationType);
-    // console.log("Current Meditation:", currentMeditation);
+    
   );
 }
 
