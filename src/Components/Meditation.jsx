@@ -25,7 +25,7 @@ function Meditation() {
 
       audio: "Healing-Meditation.mp3",
       image: "Healing Meditation.jpg",
-      message: "Relax and reflect on the day's events."
+      message: "Inner stillness is the key to outer strength."
     },
     "sleeping": {
 
@@ -46,7 +46,7 @@ function Meditation() {
         <source src={`/${currentMeditation.audio}`} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
-      <p> Awake the world, one mind at a time!</p>
+      <p>{currentMeditation.message}</p>
     </div>
     
   );

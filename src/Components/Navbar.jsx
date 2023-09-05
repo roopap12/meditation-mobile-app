@@ -23,7 +23,7 @@ function Navbar({ setCurrentTab }) {
           <img src="/meditation logo.jpeg" alt="My Logo" className="logo-img" />
         </Link>
       </div>
-
+      <div className="nav-items-group"></div>
       {/* Home Tab */}
       <div className="nav-item">
         <Link to="/" className="link">
