@@ -48,7 +48,7 @@ function Form() {
       setEmail("");
       setDonation("");
     } else {
-      setAchievement(false);
+      // setAchievement(false);
     }
   }
   //This will show the fields on the form with
@@ -126,6 +126,10 @@ function Form() {
         </div>
         <button onClick={(e) => validate(e)}>SIGN UP!</button>
         <br></br>
+        <div></div>
+        {achievement && (
+        <p>Congratulations! You have successfully registered.</p>
+      )}
       </div>
     </>
   );
