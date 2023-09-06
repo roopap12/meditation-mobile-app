@@ -14,10 +14,10 @@ function Stopwatch({ selectedMeditation }) {
   const endSoundRef = useRef(null);
 
   const meditationMusic = {
-    "morning": "/Morning-Meditation.mp3",
-    "evening": "/Mymusic.mp3",
-    "healing": "/Healing-Meditation.mp3",
-    "sleeping": "/Meditation-to-Sleep.mp3"
+    morning: "/Morning-Meditation.mp3",
+    evening: "/Mymusic.mp3",
+    healing: "/Healing-Meditation.mp3",
+    sleeping: "/Meditation-to-Sleep.mp3",
   };
 
   const start = () => {
@@ -34,15 +34,6 @@ function Stopwatch({ selectedMeditation }) {
   let updatedMs = time.ms,
     updatedS = time.s,
     updatedM = time.m;
-
-  const fadeAudio = () => {
-    if (volume > 0.1) {
-      setVolume((prevVolume) => prevVolume - 0.1);
-      audioRef.current.volume = volume;
-    } else {
-      clearInterval(fadeInterval.current);
-    }
-  };
 
   const run = () => {
     if (updatedMs === 0) {
@@ -62,15 +53,28 @@ function Stopwatch({ selectedMeditation }) {
     } else {
       updatedMs--;
     }
-    if (updatedM === 0 && updatedS <= 10 && !fadeInterval.current) {
+    if (updatedM === 1 && updatedS === 0 && !fadeInterval.current) {
       fadeInterval.current = setInterval(fadeAudio, 1000);
     }
     setTime({ ms: updatedMs, s: updatedS, m: updatedM });
   };
-
+  //This piece of code is to Fade the music when last 1 min is left
+  const fadeAudio = () => {
+    if (volume > 0) {
+      setVolume((prevVolume) => {
+        const newVolume = Math.max(0, prevVolume - 0.0167);
+        audioRef.current.volume = newVolume;
+        return newVolume;
+      });
+    } else {
+      clearInterval(fadeInterval.current);
+    }
+  };
+  // This piece of code either stop when the time is finished or if the pause button is pressed
   const stop = () => {
     clearInterval(interv);
     clearInterval(fadeInterval.current);
+    setVolume(1); // reset volume
     setStatus(2);
     setTime({ ms: 0, s: 0, m: userTime });
     if (audioRef.current) {
