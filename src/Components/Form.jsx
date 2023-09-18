@@ -1,5 +1,6 @@
 //import the component regex.js
 import React, { useState } from "react";
+import { db } from "../db";// Import dexie 
 import {
   firstNameRegex,
   lastNameRegex,
@@ -21,6 +22,25 @@ function Form() {
     email: false,
   });
 
+
+// This is the function to add fields in database . 
+//Imp: Used PareseFloat to convert string to number in case of database expects a number with decimal digits for this field. 
+//Can use ParseInt as well but Dexie restrict to sue the number with decimal e.g. if we want 123.45 it will accept only 123.
+  async function addToDatabase() {
+  try {
+    await db.form.add({
+      firstName: firstName,
+      lastName: lastName,
+      dateOfBirth: dateOfBirth,
+      email: email,
+      donation: parseFloat(donation) 
+    });
+    console.log("Data added successfully!");
+  } catch (error) {
+    console.error("There was an error adding the data:", error);
+  }
+}
+
   //This code validates the fields
   function validate(e) {
     e.preventDefault();
@@ -40,6 +60,7 @@ function Form() {
       !regexErrors.email
     ) {
       setAchievement(true);
+      addToDatabase();//This is to add data into database
 
       // This Reset the form fields
       setFirstName("");
