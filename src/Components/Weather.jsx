@@ -3,8 +3,8 @@ import axios from 'axios';
 
 function WeatherComponent() {
     const [weatherData, setWeatherData] = useState(null);
-    const API_KEY = 'df48fd64b1121cfc17e8b62e80c1fca1';  // Replace 'YOUR_API_KEY' with the key you got from OpenWeatherMap
-    const CITY = 'Auckland';  // Replace with your city or make it dynamic
+    const API_KEY = 'df48fd64b1121cfc17e8b62e80c1fca1';  // API_KEY' from OpenWeatherMap
+    const CITY = 'Auckland';  // I have made it Auckland as dynamic
 
     useEffect(() => {
         const fetchData = async () => {
