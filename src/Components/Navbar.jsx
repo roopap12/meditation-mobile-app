@@ -70,6 +70,9 @@ function Navbar({ setCurrentTab }) {
             <Link to="/Meditation?type=sleeping" className="link">
               Meditation to Sleep
             </Link>
+            <Link to="/Meditation?type=flute" className="link">
+              Calming Meditation
+            </Link>
             {/* Add more meditation types here as needed */}
           </div>
         )}

@@ -33,6 +33,12 @@ function Meditation() {
       image: "Meditation-to-Sleep.jpg",
       message: "Benefits that you can bring to bed."
     },
+    "flute": {
+      audio: "FluteMusic.mp3",
+      image: "Calming-Flute-Music.jpg",
+      message: "Flute Serenity: Music to Calm Your Every Moment."
+    },
+    
     // ... Add other meditation types here
   };
 

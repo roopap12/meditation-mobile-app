@@ -136,13 +136,13 @@ function Form() {
           )}
         </div>
         <div className="box">
-          <label>Donation $</label>
+          <label>Registration Fees $</label>
           <input
             className="input"
             type="number"
             value={donation}
             onChange={(event) => setDonation(event.target.value)}
-            placeholder="donation"
+            placeholder="Registration Fees"
           />
         </div>
         <button onClick={(e) => validate(e)}>SIGN UP!</button>
