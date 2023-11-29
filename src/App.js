@@ -5,7 +5,8 @@ import Footer from "./Components/Footer";
 import Stopwatch from "./Components/Stopwatch";
 import Header from "./Components/Header";
 import Meditation from "./Components/Meditation";
-import Weather from './Components/Weather'; 
+import Weather from './Components/Weather';
+import ChatBotUI from './Components/ChatBotUI';
 
 import { useLocation } from "react-router-dom"; // Extract meditation type from the location
 
@@ -68,6 +69,7 @@ function App({ children }) {
       </div>
       <div className="child-footer">
         <Footer />
+        <ChatBotUI />
       </div>
     </div>
   );
