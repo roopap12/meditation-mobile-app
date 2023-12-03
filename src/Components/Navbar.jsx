@@ -79,7 +79,7 @@ function Navbar({ setCurrentTab }) {
       </div>
 
       {/* Registration Form Tab */}
-      <div className="nav-item" onClick={() => setCurrentTab("form")}>
+      <div className="nav-item1" onClick={() => setCurrentTab("form")}>
         <Link to="/Form" className="link">
           Registration Form
         </Link>

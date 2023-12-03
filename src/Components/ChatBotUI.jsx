@@ -45,7 +45,7 @@ function Chatbot() {
        sendMessage(message)
            .then(response => {
             console.log('Received response:', response.data.message);
-               setChat([...chat, { sender: 'bot', message: response.data.message }]);
+            setChat(prevChat => [...prevChat, { sender: 'bot', message: response.data.message }]);
            })
            .catch(error => {
                console.error('Error sending message', error);

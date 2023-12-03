@@ -114,6 +114,18 @@ body {
   position: relative;
 }
 
+.nav-item1 {
+  padding: 20px 20px;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  background-color: rgb(5, 153, 245);
+  cursor: pointer;
+  font-family: Tahoma;
+  font-size: 20px;
+  position: relative;
+}
+
 
 
 .yoga-dropdown {

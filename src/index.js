@@ -14,13 +14,13 @@
 
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import MyRouter from './MyRouter';
 
-ReactDOM.render(
+// Use createRoot instead of ReactDOM.render
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <MyRouter />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
