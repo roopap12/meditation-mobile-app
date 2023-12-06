@@ -5,26 +5,27 @@
 }
 
 .main {
-  display: flex; 
+  display: flex;
   flex-grow: 1;
 }
 
 .content {
   flex-grow: 1;
 }
-  
+
 /* --------- Non-flexbox related styles --------- */
 
 .child {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 1%;
   padding: 30px;
   font-size: 50px;
   line-height: 20px;
   color: black;
-  background-color:lightblue;
+  background-color: lightblue;
   border-radius: 5px;
   border: 5px blue;
 }
@@ -33,17 +34,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%; /* Ensure the height of the header is 100% */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 1%;
   padding: 20px;
   font-size: 30px;
   font-style: initial;
-  line-height: 10px;
   color: black;
   background-color: lightcyan;
-  border-radius: 5px;
+  border-radius: 0 0 5px 5px; /* Rounded corners only at the bottom */
   border: 5px rgb(80, 80, 112);
-
 }
 
 .child-meditation-timer {
@@ -57,7 +57,7 @@
   border-radius: 5px;  
   border: none;
   background-color: lightblue;
-  color: Black;
+  color: black;
   text-decoration: dark black;  
 }
 
@@ -72,6 +72,7 @@
   cursor: pointer;
   border: none;
 }
+
 .button-box {
   height: 20px;
   width: 200px;
@@ -96,7 +97,7 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 5px 20px;
   align-items: center;
   background-color: lightblue;
@@ -104,31 +105,43 @@ body {
 }
 
 .nav-item {
-  padding: 20px 20px;
+  padding: 15px 15px;
   justify-content: space-between;
   align-items: center;
   color: black;
   cursor: pointer;
   font-family: Tahoma;
-  font-size: 20px;
+  font-size: 30px;
   position: relative;
+}
+
+.nav-logo {
+  flex-shrink: 0;
+  width: auto;
+  margin-right: 925px; /* Spacing after the logo, if desired */
+  order: -1;
+}
+
+@media screen and (max-width: 768px) {
+.logo-img {
+  max-width: 100%; /* Adjust maximum width for smaller screens */
+  margin-right: 0; /* Remove margin for smaller screens */
+}
 }
 
 .nav-item1 {
-  padding: 20px 20px;
+  padding: 15px 15px;
   justify-content: space-between;
   align-items: center;
   color: black;
-  background-color: rgb(5, 153, 245);
   cursor: pointer;
   font-family: Tahoma;
-  font-size: 20px;
+  font-size: 30px;
   position: relative;
+  background-color: rgb(141, 203, 242);
 }
 
-
-
-.yoga-dropdown {
+.yoga-dropdown, .meditation-dropdown {
   position: absolute; 
   top: 100%;          
   z-index: 1;         
@@ -138,7 +151,8 @@ body {
   width: 200px;    
   font-size: 15px;   
 }
-.yoga-dropdown .link {
+
+.yoga-dropdown .link, .meditation-dropdown .link {
   display: block;     
   padding: 8px 16px;  
   text-decoration: none; 
@@ -150,30 +164,29 @@ body {
   border-bottom: none;  
 }
 
-.yoga-dropdown .link:hover {
+.yoga-dropdown .link:hover, .meditation-dropdown .link:hover {
   background-color: #f7f7f7; 
 }
 
-
-.link{
+.link {
   text-decoration: none;
   color: black;
 }
 
 .nav-item:hover {
   background-color: lightskyblue;
-  height: 30px
+  height: 30px;
 }
+
 .child content {
   width: 300px;
-  height:200px;
+  height: 200px;
 }
 
 .yoga, .meditation, .timer {
   display: flex;
   flex-direction: column;
   font-size: 25px;
-  
 }
 
 .child-footer {
@@ -181,7 +194,7 @@ body {
   margin: 1%;
   font-size: 15px;
   color: black;
-  background-color:lightblue;
+  background-color: lightblue;
   border-radius: 5px;
   border: 5px blue;
 }
@@ -219,14 +232,15 @@ code {
   width: 250px;
 }
 
-form{
+form {
   background-color: rgb(195, 212, 212);
-  padding: 0px 20px;
+  padding: 0px 20px; /* Adjusted padding */
   border-radius: 10px;
 }
+
 .errorMessage {
   color: red;
-  padding: 5px
+  padding: 5px;
 }
 
 .main-section {
@@ -237,13 +251,13 @@ form{
   margin: 30px auto;
 }
 
-.stopwatch-box{
+.stopwatch-box {
   background: lightblue;
   padding: 5px;
   margin: 10px;
 }
 
-.stopwatch-btn{
+.stopwatch-btn {
   padding: 5px;
   margin: 10px;
 }
@@ -258,31 +272,4 @@ form{
   object-fit: cover; /* This will ensure that the image covers the entire width and height without distorting. Useful especially if the original image's aspect ratio is different */
   border-radius: 10px;  /* Optional: Adds rounded corners to the image */
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);  /* Optional: Adds a subtle shadow to the image for a slightly lifted effect */
-}
-
-.meditation-dropdown {
-  display: block;
-  position: absolute;
-  background-color: lightskyblue;
-  min-width: 160px;
-  font-size: 15px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.meditation-dropdown .link {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.meditation-dropdown .link:hover {
-  background-color: white;
-}
-
-.nav-logo {
-  flex-shrink: 0;
-  width: auto;
-  margin-right: 725px; /* Spacing after the logo, if desired */
 }

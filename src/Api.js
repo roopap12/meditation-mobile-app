@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000'; // This is the FastAPI server URL
+const API_URL = 'http://localhost:8001'; // This is the FastAPI server URL
 
 export const startChat = () => {
     return axios.get(`${API_URL}/start-chat`);

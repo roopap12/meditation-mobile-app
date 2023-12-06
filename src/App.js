@@ -7,6 +7,7 @@ import Header from "./Components/Header";
 import Meditation from "./Components/Meditation";
 import Weather from './Components/Weather';
 import ChatBotUI from './Components/ChatBotUI';
+// import { Link } from "react-router-dom";
 
 import { useLocation } from "react-router-dom"; // Extract meditation type from the location
 
@@ -43,7 +44,8 @@ function App({ children }) {
     <div className="parent">
       <Header />
       <div className="child">
-        <Navbar
+      
+      <Navbar
           setCurrentTab={setCurrentTab}
           setSelectedMeditation={setSelectedMeditation}
         />
@@ -77,72 +79,3 @@ function App({ children }) {
 
 export default App;
 
-// import React, { useState, useEffect, useMemo } from "react";
-// import "./App.css";
-// import Navbar from "./Components/Navbar";
-// import Footer from "./Components/Footer";
-// import Stopwatch from "./Components/Stopwatch";
-// import Header from "./Components/Header";
-// import Meditation from "./Components/Meditation";
-// import Weather from './Components/Weather'; // import the WeatherComponent
-// import { useLocation } from "react-router-dom"; // Extract meditation type from the location
-
-// function App({ children }) {
-//   const [currentTab, setCurrentTab] = useState("original");
-//   const [currentTime, setCurrentTime] = useState(
-//     new Date().toLocaleTimeString()
-//   );
-
-//   const location = useLocation();
-//   const params = useMemo(() => {
-//     return new URLSearchParams(location.search);
-//   }, [location.search]);
-
-//   const [selectedMeditation, setSelectedMeditation] = useState(
-//     params.get("type") || "morning"
-//   );
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentTime(new Date().toLocaleTimeString());
-//     }, 1000);
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   useEffect(() => {
-//     setSelectedMeditation(params.get("type") || "morning");
-//   }, [location, params]);
-
-//   return (
-//     <div className="parent">
-//       <Header />
-//       <div className="child">
-//         <Navbar
-//           setCurrentTab={setCurrentTab}
-//           setSelectedMeditation={setSelectedMeditation}
-//         />
-//       </div>
-//       <div className="main">
-//         <div className="button-box">
-//           <div className="child-meditation-timer">Meditation Timer</div>
-//           <div className="timer">{currentTime}</div>
-//           <div className="stopwatch-box">
-//             <Stopwatch selectedMeditation={selectedMeditation} />
-//           </div>
-//         </div>
-//         <div className="child content">
-//           {currentTab === "meditation" && (
-//             <Meditation selectedMeditation={selectedMeditation} />
-//           )}
-//           {children}
-//         </div>
-//         <Weather /> {/* Add the WeatherComponent here or wherever you want it to be displayed */}
-//       </div>
-//       <div className="child-footer">
-//         <Footer />
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;

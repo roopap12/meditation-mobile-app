@@ -58,7 +58,7 @@ function Chatbot() {
                <SendIcon />
            </StyledIconButton>
            <Typography variant="h6" sx={{ position: 'fixed', left: '10px', right: '10px' }}>
-               Chatbot
+               {/* Chatbot */}
            </Typography>
            <StyledDialog open={open} onClose={handleClose}>
                <DialogContent>
