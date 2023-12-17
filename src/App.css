@@ -1,7 +1,15 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: azure;
+}
+
 .parent {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  background-color: #add8e6;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .main {
@@ -9,23 +17,21 @@
   flex-grow: 1;
 }
 
-.content {
-  flex-grow: 1;
-}
-
-/* --------- Non-flexbox related styles --------- */
+/* .content {
+  flex-grow: 2;
+} */
 
 .child {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-center;
   margin: 1%;
-  padding: 30px;
+  padding: 20px;
   font-size: 50px;
-  line-height: 20px;
+  line-height: 30px;
   color: black;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   border-radius: 5px;
   border: 5px blue;
 }
@@ -34,15 +40,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%; /* Ensure the height of the header is 100% */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin: 1%;
+  height: 100%;
+  width: 90%; /* Adjust the width value as needed */
+  margin: 1% auto; /* This will center the element horizontally */
   padding: 20px;
   font-size: 30px;
   font-style: initial;
   color: black;
   background-color: lightcyan;
-  border-radius: 0 0 5px 5px; /* Rounded corners only at the bottom */
+  border-radius: 0 0 5px 5px;
   border: 5px rgb(80, 80, 112);
 }
 
@@ -86,26 +92,27 @@
 }
 
 button:hover {
-  background-color: #45a049; /* a darker shade of green for hover, adjust as needed */
-}
-
-body {
-  background-color: #a5b8e6;
-  font-family: Arial;
-  font-weight: 500;
+  background-color: #45a049;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between;
-  padding: 5px 20px;
   align-items: center;
-  background-color: lightblue;
-  margin-left: 0;
+  justify-content: center;
+  height: 100%;
+  width: 90%; /* Adjust the width value as needed */
+  margin: 1% auto; /* This will center the element horizontally */
+  padding: 20px;
+  font-size: 30px;
+  font-style: initial;
+  color: black;
+  background-color: lightcyan;
+  border-radius: 0 0 5px 5px;
+  border: 5px rgb(80, 80, 112);
 }
 
 .nav-item {
-  padding: 15px 15px;
+  padding: 2rem;
   justify-content: space-between;
   align-items: center;
   color: black;
@@ -113,23 +120,25 @@ body {
   font-family: Tahoma;
   font-size: 30px;
   position: relative;
+  width: 100%; /* Adjust the width value as needed */
 }
 
 .nav-logo {
-  flex-shrink: 0;
-  width: auto;
-  margin-right: 925px; /* Spacing after the logo, if desired */
-  order: -1;
+  display: flex;
+  align-items: center;
+  /* padding: 10px 0; */
+  padding-top: 20px;
+  margin: 10px 0;
 }
 
-@media screen and (max-width: 768px) {
 .logo-img {
-  max-width: 100%; /* Adjust maximum width for smaller screens */
-  margin-right: 0; /* Remove margin for smaller screens */
-}
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;/* Adjust the margin as needed */
+ 
 }
 
-.nav-item1 {
+/* .nav-item1 {
   padding: 15px 15px;
   justify-content: space-between;
   align-items: center;
@@ -139,7 +148,7 @@ body {
   font-size: 30px;
   position: relative;
   background-color: rgb(141, 203, 242);
-}
+} */
 
 .yoga-dropdown, .meditation-dropdown {
   position: absolute; 
@@ -166,6 +175,13 @@ body {
 
 .yoga-dropdown .link:hover, .meditation-dropdown .link:hover {
   background-color: #f7f7f7; 
+}
+.yoga p,
+.Meditation p {
+  font-size: 20px; /* Adjust the font size as needed */
+  text-align: center;
+  margin: 10px;
+  max-width: 100%;
 }
 
 .link {
@@ -199,14 +215,6 @@ body {
   border: 5px blue;
 }
 
-body {
-  margin: 0;
-  font-family:  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: azure;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -221,7 +229,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 15px;
+  font-size: 10px;
 }
 
 .input {
@@ -232,11 +240,11 @@ code {
   width: 250px;
 }
 
-form {
+/* form {
   background-color: rgb(195, 212, 212);
-  padding: 0px 20px; /* Adjusted padding */
+  padding: 0px 20px;
   border-radius: 10px;
-}
+} */
 
 .errorMessage {
   color: red;
@@ -267,9 +275,35 @@ form {
 }
 
 .meditationImage {
-  width: 800px;      /* Width of the image */
-  height: 500px;     /* Height of the image */
-  object-fit: cover; /* This will ensure that the image covers the entire width and height without distorting. Useful especially if the original image's aspect ratio is different */
-  border-radius: 10px;  /* Optional: Adds rounded corners to the image */
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);  /* Optional: Adds a subtle shadow to the image for a slightly lifted effect */
+  width: 900px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
+.separator {
+  border-left: 2px solid #000;
+  height: 100%;
+  margin: 0  20px; /* Adjust the margin as needed */
+}
+.left-content {
+  flex-shrink: 0;
+  padding-right: 20px; /* Adjust the padding as needed */
+  /* border-right: 2px solid #000; */
+  /* background-color: #f2f2f2; Set your desired color */
+}
+
+/* .right-content {
+  margin-left: 40px; 
+} */
+.home {
+  font-size: 40px; /* Adjust the size as needed */
+  margin-top: 10px; /* Add some space between the image and text */
+}
+/* .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; 
+} */

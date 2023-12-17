@@ -75,6 +75,7 @@ function Form() {
   //This will show the fields on the form with
   return (
     <>
+    {/* <div className="form-container"> </div> */}
       <div className="box">
         <h1>Registration Form</h1>
         <div className="box">
